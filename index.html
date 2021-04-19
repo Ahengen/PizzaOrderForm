@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pizza Palace</title>
+    <!-- Bootstrap styles first -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Our styles -->
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body id="page">
+    <div class="container">
+        <h1>Welcome to Amber's Pizza Palace</h1>
+        <h4>To make web dev costs cheaper we've limited the choice and passed the savings onto you!</h4>
+
+        <nav>
+            <ul id="tabs" class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#pizza">Pizza Selection</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#delivery">Delivery Information</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#summary">Order Summary</a>
+                </li>
+            </ul>
+        </nav>
+
+
+            <form>
+                <div class="tab-content">
+                <!--Step 1: Enter Pizza Information-->
+                <div id="pizza" class="tab-pane active">
+                    <h2>Pizza Selection</h2>
+                    <!--Ask user for pizza size-->
+                    <fieldset id="size">
+                        <div>Size</div>
+                        <input type="radio" name="size" id="sizeSmall" data-price="7.00" value="Small" checked>
+                        <label for="sizeSmall">Small: $7</label>
+                        <br>
+                        <input type="radio" name="size" id="sizeMedium" data-price="9.00" value="Medium">
+                        <label for="sizeMedium">Medium: $9</label>
+                        <br>
+                        <input type="radio" name="size" id="sizeLarge" data-price="12.00" value="Large">
+                        <label for="sizeLarge">Large: $12</label>
+                        <br>
+                    </fieldset>
+
+                    <!--Ask user for crust type-->
+                    <fieldset id="crust">
+                        <div>Crust</div>
+                        <input type="radio" name="crust" id="thin" data-price="0.00" checked>
+                        <label for="thin">Thin</label>
+                        <br>
+                        <input type="radio" name="crust" id="pan" data-price="0.00">
+                        <label for="pan">Pan</label>
+                        <br>
+                        <input type="radio" name="crust" id="gluten" data-price="0.00">
+                        <label for="gluten">Gluten Free</label>
+                        <br>
+                    </fieldset>
+
+                    <!--Ask user for protein-->
+                    <fieldset id="protein">
+                        <div>Pick your Protein!</div>
+                        <div>$1.50 per meat topping</div>
+                        <input type="checkbox" name="topping" id="pepperoni" data-price="1.50">
+                        <label for="pepperoni">Pepperoni</label>
+                        <br>
+                        <input type="checkbox" name="topping" id="chicken" data-price="1.50">
+                        <label for="chicken">Grilled Chicken</label>
+                        <br>
+                        <input type="checkbox" name="topping" id="sausage" data-price="1.50">
+                        <label for="sausage">Spicy Sausage</label>
+                        <br>
+                        <input type="checkbox" name="topping" id="bacon" data-price="1.50">
+                        <label for="bacon">Canadian Bacon</label>
+                        <br>
+                    </fieldset>
+
+                    <!--Ask user for veggies-->
+                    <fieldset id="veggies">
+                        <div>Eat your veggies...on pizza!</div>
+                        <div>$1.00 per veggie topping</div>
+                        <input type="checkbox" name="topping" id="mushrooms" data-price="1.00">
+                        <label for="mushrooms">Mushrooms</label>
+                        <br>
+                        <input type="checkbox" name="topping" id="peppers" data-price="1.00">
+                        <label for="peppers">Green Peppers</label>
+                        <br>
+                        <input type="checkbox" name="topping" id="garlic" data-price="1.00">
+                        <label for="garlic">Roasted Garlic</label>
+                        <br>
+                        <input type="checkbox" name="topping" id="artichokes" data-price="1.00">
+                        <label for="artichokes">Artichokes</label>
+                        <br>
+                    </fieldset>
+                </div>
+
+                <!--Step 2: Enter Delivery Information-->
+                <div id="delivery" class="tab-pane">
+                    <h2>Enter Delivery Information</h2>
+                    <!--enter name-->
+                    <fieldset>
+                        <label for="name">Full Name:</label><br>
+                        <input type="text" id="name">
+                        <br>
+                        <!--enter address-->
+                        <label for="street">Street Address:</label><br>
+                        <input type="text" id="street" >
+                        <small> Format: 123 Pizza Ave</small>
+                        <br>
+                        <label for="city">City:</label><br>
+                        <input type="text" id="city" >
+                        <br>
+                        <label for="state">State:</label><br>
+                        <input type="text" id="state" >
+                        <br>
+                        <label for="zip">Zipcode:</label><br>
+                        <input type="text" id="zip" >
+                        <br>
+                        <!--enter phone-->
+                        <label for="phone">Phone number:</label><br>
+                        <input type="tel" id="phone" name="phone"
+                               pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                               >
+                        <small>Format: 123-456-7890</small>
+                        <br>
+                    </fieldset>
+                </div>
+
+                <!--Step 3: Order Confirmation-->
+                <div id="summary" class="tab-pane">
+                    <!--display pizza details and customer information from steps 1 and 2-->
+                    <h2>Pizza Confirmation Details</h2>
+                    <span id="summarySize"></span> <span id="summaryCrust"></span> pizza with:
+                    <ul id="summaryToppings"></ul>
+                    Delivery address:<br>
+                    <div id="custName"></div>
+                    <div id="custAddress"></div>
+                    <div id="custPhone"></div>
+                    <br>
+                    Your order total is:
+                    <table>
+                        <tr>
+                            <td>Subtotal:</td>
+                            <td style="text-align: right">$<span id="subtotal"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Tax (@5.1%):</td>
+                            <td style="text-align: right">$<span id="tax"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Delivery Fee:</td>
+                            <td style="text-align: right">$<span id="fee"></span></td>
+                        </tr>
+                        <tr>
+                            <td>Total:</td>
+                            <td style="text-align: right">$<span id="total"></span></td>
+                        </tr>
+                    </table>
+                    <!--submit button-->
+                    <br>
+                    <button type="submit">Place Order</button>
+                    <br>
+                    <br>
+                    <div id="thanks"></div>
+                </div>
+                </div>
+            </form>
+
+    </div>
+    <!-- jQuery first -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Popper and Bootstrap second -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Our code last -->
+    <script  src="code.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+#page
+{
+    background-image: url("menubackground.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: block;
+    margin-bottom: 0;
+}
+
+.container
+{
+    background-color: #ffffff;
+    opacity: 90%;
+}
